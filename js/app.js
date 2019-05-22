@@ -13,8 +13,8 @@
 const deckCard = document.querySelector(".card") 
 
 deckCard.addEventListener("click", function() {
-    console.log("Test!");
-    deckCard.className += " open show";
+    deckCard.classList.toggle("open");
+    deckCard.classList.toggle("show");
 })
 
 for (i = 1; i >= 16; i++) {

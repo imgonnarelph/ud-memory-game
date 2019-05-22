@@ -1,7 +1,7 @@
 /*
  * Create a list that holds all of your cards
  */
-
+ const cards = ["diamond", "paper-plane-o", "anchor", "bolt", "cube", "leaf", "bicycle", "bomb"]
 
 /*
  * Display the cards on the page
@@ -9,6 +9,17 @@
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
+
+const deckCard = document.querySelector(".card") 
+
+deckCard.addEventListener("click", function() {
+    console.log("Test!");
+    deckCard.className += " open show";
+})
+
+for (i = 1; i >= 16; i++) {
+
+}
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {

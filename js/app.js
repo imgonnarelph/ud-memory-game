@@ -17,18 +17,13 @@ for (let i = 1; i <= 16; i++) {
     const newCardList = document.createElement('li');
     const card = document.createElement('i');
     newCardList.className = "card";
+    deckOfCards = shuffle(deckOfCards);
     card.className = "fa " + deckOfCards[i];
     newCardList.appendChild(card);
     cardContainer.appendChild(newCardList);
-    console.log(newCardList)
-
-    // deckOfCards = shuffle(deckOfCards);
-    // console.log(deckOfCards);
 }
 
-// cardContainer.appendChild(cardContainer);
-
-const deckCard = document.querySelectorAll(".card");
+const deckCard = document.querySelector(".card");
 
 deckCard.addEventListener("click", function() {
     deckCard.classList.toggle("open");

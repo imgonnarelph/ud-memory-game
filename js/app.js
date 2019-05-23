@@ -23,17 +23,6 @@ for (let i = 1; i <= 16; i++) {
     cardContainer.appendChild(newCardList);
 }
 
-const deckCard = document.querySelector(".card");
-
-deckCard.addEventListener("click", function() {
-    deckCard.classList.toggle("open");
-    deckCard.classList.toggle("show");
-})
-
-for (i = 1; i >= 16; i++) {
-
-}
-
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -49,7 +38,6 @@ function shuffle(array) {
     return array;
 }
 
-
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -60,3 +48,12 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+const allCards = document.querySelectorAll(".card");
+
+allCards.forEach( (card) => {
+    card.addEventListener("click", () => {
+        card.classList.toggle("open");
+        card.classList.toggle("show");
+    })
+})

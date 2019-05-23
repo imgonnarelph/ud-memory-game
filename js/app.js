@@ -1,7 +1,7 @@
 /*
  * Create a list that holds all of your cards
  */
- const cards = ["diamond", "paper-plane-o", "anchor", "bolt", "cube", "leaf", "bicycle", "bomb"]
+let deckOfCards = ["diamond", "paper-plane-o", "anchor", "bolt", "cube", "leaf", "bicycle", "bomb"]
 
 /*
  * Display the cards on the page
@@ -10,7 +10,26 @@
  *   - add each card's HTML to the page
  */
 
-const deckCard = document.querySelector(".card") 
+
+const cardContainer = document.createElement('ul');
+cardContainer.className = "deck";
+
+for (let i = 1; i <= 16; i++) {
+    const newCardList = document.createElement('li');
+    const card = document.createElement('i');
+
+    newCardList.className = "card";
+    card.className = "fa " + deckOfCards[i];
+    newCardList.appendChild(card);
+    console.log(newCardList)
+
+    // deckOfCards = shuffle(deckOfCards);
+    // console.log(deckOfCards);
+}
+
+document.querySelector(".deck").appendChild(cardContainer);
+
+const deckCard = document.querySelectorAll(".card");
 
 deckCard.addEventListener("click", function() {
     deckCard.classList.toggle("open");

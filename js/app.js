@@ -66,7 +66,7 @@ allCards.forEach( (card) => {
         if (openCards.length <= 2) {
             card.classList.add("open", "show"); 
         }
-        if (openCards.length === 2) {
+        if (openCards.length === 2 && openCards[0].dataset.card != openCards[1].dataset.card) {
             setTimeout(() => {
                 openCards.forEach( (card) => {
                     card.classList.remove("open", "show");
@@ -77,6 +77,8 @@ allCards.forEach( (card) => {
         if (openCards.length === 2 && openCards[0].dataset.card == openCards[1].dataset.card) {
             console.log(openCards[0].dataset.card)
             console.log("Match!")
+        } else {
+            
         }
     })
 })

@@ -63,17 +63,12 @@ let openCards = []
 let correctMatches = 0
 let movesCount = 0
 let starsCount = 3
+let winningStars = 0;
+let winningTime = 0;
+let winningMoves = 0;
 let minutesLabel = document.getElementById("minutes");
 let secondsLabel = document.getElementById("seconds");
 let totalSeconds = 0;
-
-initGame = () => {
-
-}
-
-forEachMatch = () => {
-
-}
 
 allCards.forEach( (card) => {
     card.addEventListener("click", () => {
@@ -92,11 +87,17 @@ allCards.forEach( (card) => {
             });
             correctMatches += 1;
             openCards = [];
-            let winningTime = timerElement.textContent;
+            winningTime = timerElement.textContent;
             timerElement.textContent = winningTime;
             stars()
         }
         if (correctMatches === 1) {
+            let winningStarsElement = document.querySelector(".winning-stars");
+            let winningTimeElement = document.querySelector(".winning-time");
+            let winningMovesElement = document.querySelector(".winning-moves");
+            winningStarsElement.textContent = starsCount;
+            winningTimeElement.textContent = winningTime;
+            winningMovesElement.textContent = movesCount;
             startConfetti();
             MicroModal.show('modal-1')
         }

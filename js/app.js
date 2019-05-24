@@ -96,6 +96,9 @@ allCards.forEach( (card) => {
             });
             startConfetti();
             cardContainer.classList.add("winner");
+            let winningTime = timerElement.textContent;
+            console.log(winningTime)
+            timerElement.textContent = winningTime;
         }
     })
 })
@@ -104,9 +107,9 @@ restartElement.addEventListener("click", () => {
     newGame()
 })
 
-var minutesLabel = document.getElementById("minutes");
-var secondsLabel = document.getElementById("seconds");
-var totalSeconds = 0;
+let minutesLabel = document.getElementById("minutes");
+let secondsLabel = document.getElementById("seconds");
+let totalSeconds = 0;
 setInterval(setTime, 1000);
 
 function setTime() {
@@ -116,7 +119,7 @@ function setTime() {
 }
 
 function pad(val) {
-  var valString = val + "";
+  let valString = val + "";
   if (valString.length < 2) {
     return "0" + valString;
   } else {

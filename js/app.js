@@ -70,9 +70,10 @@ const allCards = document.querySelectorAll(".card");
 const movesElement = document.querySelector(".moves")
 const restartElement = document.querySelector(".restart")
 const timerElement = document.querySelector(".timer")
+const starsElement = document.querySelector(".stars")
 let openCards = []
 let movesCount = 0
-let starsCount = 0
+let starsCount = 3
 let minutesLabel = document.getElementById("minutes");
 let secondsLabel = document.getElementById("seconds");
 let totalSeconds = 0;
@@ -92,6 +93,7 @@ allCards.forEach( (card) => {
                 openCards = [];
             }, 800);
             movesFunction()
+            stars()
         }
         if (openCards.length === 2 && openCards[0].dataset.card == openCards[1].dataset.card) {
             openCards.forEach( (card) => {
@@ -142,6 +144,9 @@ newGame = () => {
 }
 
 stars = () => {
-
+    if (movesCount === 5) {
+        starsElement.children[2].classList.add("hide")
+    } else if (movesCount === 7) {
+        starsElement.children[1].classList.add("hide")
+    }
 }
-

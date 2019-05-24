@@ -98,7 +98,6 @@ allCards.forEach( (card) => {
         }
         if (correctMatches === 1) {
             startConfetti();
-            cardContainer.classList.add("winner");
             MicroModal.show('modal-1')
         }
     })

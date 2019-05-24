@@ -18,7 +18,7 @@ let deckOfCards = [ "fa-diamond",
 
 const cardContainer = document.querySelector(".deck")
 
-for (let i = 1; i <= 16; i++) {
+for (let i = 0; i <= 15; i++) {
     const newCardList = document.createElement('li');
     const card = document.createElement('i');
     const cardType = deckOfCards[i];
@@ -78,8 +78,6 @@ forEachMatch = () => {
 allCards.forEach( (card) => {
     card.addEventListener("click", () => {
         openCards.push(card);
-        
-        
         if (openCards.length <= 2) {
             card.classList.add("open", "show"); 
         }
@@ -98,7 +96,6 @@ allCards.forEach( (card) => {
             timerElement.textContent = winningTime;
             stars()
         }
-
         if (correctMatches === 3) {
             startConfetti();
             cardContainer.classList.add("winner");

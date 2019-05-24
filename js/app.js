@@ -53,8 +53,9 @@ function shuffle(array) {
 
 const allCards = document.querySelectorAll(".card");
 const movesElement = document.querySelector(".moves")
+const restartElement = document.querySelector(".restart")
 let openCards = [];
-let moves = 0
+let movesCount = 0
 
 allCards.forEach( (card) => {
     card.addEventListener("click", () => {
@@ -70,8 +71,7 @@ allCards.forEach( (card) => {
                 })
                 openCards = [];
             }, 1000);
-            moves += 1;
-            movesElement.textContent = moves;
+            movesFunction()
         }
         if (openCards.length === 2 && openCards[0].dataset.card == openCards[1].dataset.card) {
             openCards.forEach( (card) => {
@@ -80,4 +80,22 @@ allCards.forEach( (card) => {
         }
     })
 })
+
+restartElement.addEventListener("click", () => {
+    restartGame()
+    console.log(movesCount)
+})
+
+movesFunction = () => {
+    movesCount += 1;
+    movesElement.textContent = movesCount;
+}
+
+restartGame = () => {
+    movesCount = 0
+    movesElement.textContent = movesCount;
+    allCards.forEach( (card) => {
+        card.classList.remove("open", "show")
+    })
+}
 

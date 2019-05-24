@@ -16,9 +16,11 @@ const cardContainer = document.querySelector(".deck")
 for (let i = 1; i <= 16; i++) {
     const newCardList = document.createElement('li');
     const card = document.createElement('i');
+    const cardType = deckOfCards[i];
     newCardList.className = "card";
+    newCardList.dataset.card = cardType;
     deckOfCards = shuffle(deckOfCards);
-    card.className = "fa " + deckOfCards[i];
+    card.className = "fa " + cardType;
     newCardList.appendChild(card);
     cardContainer.appendChild(newCardList);
 }
@@ -55,7 +57,12 @@ let openCards = [];
 allCards.forEach( (card) => {
     card.addEventListener("click", () => {
         openCards.push(card);
-        console.log(openCards.length)
+        // console.log(openCards.length)
+
+        let firstSelectedCard = openCards[0].dataset.card;
+        // let secondSelectedCard = openCards[1].dataset.card;
+        console.log(firstSelectedCard)
+
         if (openCards.length <= 2) {
             card.classList.add("open", "show"); 
         }
@@ -67,25 +74,10 @@ allCards.forEach( (card) => {
                 openCards = [];
             }, 1000);
         }
+        if (openCards.length === 2 && openCards[0].dataset.card == openCards[1].dataset.card) {
+            console.log(openCards[0].dataset.card)
+            console.log("Match!")
+        }
     })
 })
 
-
-// allCards.forEach( (card) => {
-//     card.addEventListener("click", () => {
-//         if (openCards.length >= 2) {
-//             setTimeout( () => {
-//                 openCards.forEach( () => {
-//                     card.classList.remove("open", "show");
-//                     openCards.pop(card);
-//                 })
-//             }, 100) 
-//         } else {
-//             openCards.push(card);
-//             card.classList.add("open", "show");
-//             // card.classList.toggle("open");
-//             // card.classList.toggle("show");
-//         }
-
-//     })
-// })

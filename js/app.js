@@ -18,31 +18,31 @@ let deckOfCards = [ "fa-diamond",
 
 const cardContainer = document.querySelector(".deck")
 
+shuffle(deckOfCards);
+console.log(deckOfCards)
+
 for (let i = 0; i <= 15; i++) {
-    const newCardList = document.createElement('li');
+    const cardListItem = document.createElement('li');
     const card = document.createElement('i');
     const cardType = deckOfCards[i];
-    newCardList.className = "card";
-    newCardList.dataset.card = cardType;
-    deckOfCards = shuffle(deckOfCards);
+    // deckOfCards = shuffle(deckOfCards);
+    
+    cardListItem.className = "card";
+    cardListItem.dataset.card = cardType;
+    
     card.className = "fa " + cardType;
-    newCardList.appendChild(card);
-    cardContainer.appendChild(newCardList);
+    cardListItem.appendChild(card);
+    cardContainer.appendChild(cardListItem);
 }
 
-function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
-
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
+function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
     }
-
-    return array;
+    return a;
 }
+
 
 /*
  * set up the event listener for a card. If a card is clicked:
@@ -75,6 +75,7 @@ initGame = () => {
 forEachMatch = () => {
 
 }
+
 allCards.forEach( (card) => {
     card.addEventListener("click", () => {
         openCards.push(card);
@@ -96,7 +97,7 @@ allCards.forEach( (card) => {
             timerElement.textContent = winningTime;
             stars()
         }
-        if (correctMatches === 3) {
+        if (correctMatches === 8) {
             startConfetti();
             cardContainer.classList.add("winner");
         }

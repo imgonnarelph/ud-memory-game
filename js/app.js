@@ -1,6 +1,3 @@
-/*
- * Create a list that holds all of your cards
- */
 let deckOfCards = [ "fa-diamond", 
                     "fa-paper-plane-o", 
                     "fa-anchor", 
@@ -18,14 +15,6 @@ let deckOfCards = [ "fa-diamond",
                     "fa-bicycle", 
                     "fa-bomb"
                 ]
-
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
-
 
 const cardContainer = document.querySelector(".deck")
 
@@ -72,37 +61,47 @@ const restartElement = document.querySelector(".restart")
 const timerElement = document.querySelector(".timer")
 const starsElement = document.querySelector(".stars")
 let openCards = []
+let correctMatches = 0
 let movesCount = 0
 let starsCount = 3
 let minutesLabel = document.getElementById("minutes");
 let secondsLabel = document.getElementById("seconds");
 let totalSeconds = 0;
 
+initGame = () => {
+
+}
+
+forEachMatch = () => {
+
+}
 allCards.forEach( (card) => {
     card.addEventListener("click", () => {
         openCards.push(card);
+        
         
         if (openCards.length <= 2) {
             card.classList.add("open", "show"); 
         }
         if (openCards.length === 2 && openCards[0].dataset.card != openCards[1].dataset.card) {
-            setTimeout(() => {
-                openCards.forEach( (card) => {
-                    card.classList.remove("open", "show");
-                })
-                openCards = [];
-            }, 800);
-            movesFunction()
+            hideCards()
+            moves()
             stars()
         }
         if (openCards.length === 2 && openCards[0].dataset.card == openCards[1].dataset.card) {
             openCards.forEach( (card) => {
                 card.classList.add("match")
             });
-            startConfetti();
-            cardContainer.classList.add("winner");
+            correctMatches += 1;
+            openCards = [];
             let winningTime = timerElement.textContent;
             timerElement.textContent = winningTime;
+            stars()
+        }
+
+        if (correctMatches === 3) {
+            startConfetti();
+            cardContainer.classList.add("winner");
         }
     })
 })
@@ -128,7 +127,16 @@ function pad(val) {
   }
 }
 
-movesFunction = () => {
+hideCards = () => {
+    setTimeout(() => {
+        openCards.forEach( (card) => {
+            card.classList.remove("open", "show");
+        })
+        openCards = [];
+    }, 800);
+}
+
+moves = () => {
     movesCount += 1;
     movesElement.textContent = movesCount;
 }

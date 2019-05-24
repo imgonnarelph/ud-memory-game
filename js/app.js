@@ -92,13 +92,14 @@ allCards.forEach( (card) => {
             openCards.forEach( (card) => {
                 card.classList.add("match")
             });
-            startConfetti()
+            startConfetti();
+            cardContainer.classList.add("winner");
         }
     })
 })
 
 restartElement.addEventListener("click", () => {
-    restartGame()
+    newGame()
 })
 
 movesFunction = () => {
@@ -106,11 +107,13 @@ movesFunction = () => {
     movesElement.textContent = movesCount;
 }
 
-restartGame = () => {
+newGame = () => {
     movesCount = 0
     movesElement.textContent = movesCount;
     allCards.forEach( (card) => {
-        card.classList.remove("open", "show")
+        card.classList.remove("open", "show", "match")
     })
+    stopConfetti();
+
 }
 

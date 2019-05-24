@@ -19,7 +19,6 @@ let deckOfCards = [ "fa-diamond",
 const cardContainer = document.querySelector(".deck")
 
 shuffle(deckOfCards);
-console.log(deckOfCards)
 
 for (let i = 0; i <= 15; i++) {
     const cardListItem = document.createElement('li');
@@ -97,9 +96,10 @@ allCards.forEach( (card) => {
             timerElement.textContent = winningTime;
             stars()
         }
-        if (correctMatches === 8) {
+        if (correctMatches === 1) {
             startConfetti();
             cardContainer.classList.add("winner");
+            MicroModal.show('modal-1')
         }
     })
 })

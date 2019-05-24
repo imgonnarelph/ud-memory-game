@@ -75,10 +75,9 @@ allCards.forEach( (card) => {
             }, 1000);
         }
         if (openCards.length === 2 && openCards[0].dataset.card == openCards[1].dataset.card) {
-            console.log(openCards[0].dataset.card)
-            console.log("Match!")
-        } else {
-            
+            openCards.forEach( (card) => {
+                card.classList.add("match")
+            }) 
         }
     })
 })

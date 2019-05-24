@@ -69,8 +69,10 @@ function shuffle(array) {
 const allCards = document.querySelectorAll(".card");
 const movesElement = document.querySelector(".moves")
 const restartElement = document.querySelector(".restart")
-let openCards = [];
+const timerElement = document.querySelector(".timer")
+let openCards = []
 let movesCount = 0
+let starsCount = 0
 
 allCards.forEach( (card) => {
     card.addEventListener("click", () => {
@@ -102,6 +104,27 @@ restartElement.addEventListener("click", () => {
     newGame()
 })
 
+var minutesLabel = document.getElementById("minutes");
+var secondsLabel = document.getElementById("seconds");
+var totalSeconds = 0;
+setInterval(setTime, 1000);
+
+function setTime() {
+  ++totalSeconds;
+  secondsLabel.innerHTML = pad(totalSeconds % 60);
+  minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+}
+
+function pad(val) {
+  var valString = val + "";
+  if (valString.length < 2) {
+    return "0" + valString;
+  } else {
+    return valString;
+  }
+}
+
+
 movesFunction = () => {
     movesCount += 1;
     movesElement.textContent = movesCount;
@@ -114,6 +137,9 @@ newGame = () => {
         card.classList.remove("open", "show", "match")
     })
     stopConfetti();
+}
+
+stars = () => {
 
 }
 

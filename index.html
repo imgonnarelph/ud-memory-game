@@ -7,7 +7,7 @@
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
     <link rel="stylesheet" href="css/app.css">
-    <script src="js/confetti.js"></script>
+    
 </head>
 <body>
 
@@ -21,9 +21,11 @@
         		<li><i class="fa fa-star"></i></li>
         		<li><i class="fa fa-star"></i></li>
         		<li><i class="fa fa-star"></i></li>
-        	</ul>
-
-        	<span class="moves">0</span> Moves
+            </ul>
+            
+            <span class="moves">0</span> Moves in
+            
+            <label id="minutes">00</label>:<label id="seconds">00</label>
 
             <div class="restart">
         		<i class="fa fa-repeat"></i>
@@ -32,7 +34,8 @@
 
         <ul class="deck"></ul>
     </div>
-    
+    <script src="js/confetti.js"></script>
+    <script src="js/easytimer.js"></script>
     <script src="js/app.js"></script>
     
 </body>

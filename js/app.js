@@ -50,10 +50,42 @@ function shuffle(array) {
  */
 
 const allCards = document.querySelectorAll(".card");
+let openCards = [];
 
 allCards.forEach( (card) => {
     card.addEventListener("click", () => {
-        card.classList.toggle("open");
-        card.classList.toggle("show");
+        openCards.push(card);
+        console.log(openCards.length)
+        if (openCards.length <= 2) {
+            card.classList.add("open", "show"); 
+        }
+        if (openCards.length === 2) {
+            setTimeout(() => {
+                openCards.forEach( (card) => {
+                    card.classList.remove("open", "show");
+                })
+                openCards = [];
+            }, 1000);
+        }
     })
 })
+
+
+// allCards.forEach( (card) => {
+//     card.addEventListener("click", () => {
+//         if (openCards.length >= 2) {
+//             setTimeout( () => {
+//                 openCards.forEach( () => {
+//                     card.classList.remove("open", "show");
+//                     openCards.pop(card);
+//                 })
+//             }, 100) 
+//         } else {
+//             openCards.push(card);
+//             card.classList.add("open", "show");
+//             // card.classList.toggle("open");
+//             // card.classList.toggle("show");
+//         }
+
+//     })
+// })

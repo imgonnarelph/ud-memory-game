@@ -107,3 +107,8 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+#confetti-canvas {
+    position: absolute;
+    top: 0;
+}

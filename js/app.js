@@ -52,17 +52,14 @@ function shuffle(array) {
  */
 
 const allCards = document.querySelectorAll(".card");
+const movesElement = document.querySelector(".moves")
 let openCards = [];
+let moves = 0
 
 allCards.forEach( (card) => {
     card.addEventListener("click", () => {
         openCards.push(card);
-        // console.log(openCards.length)
-
-        let firstSelectedCard = openCards[0].dataset.card;
-        // let secondSelectedCard = openCards[1].dataset.card;
-        console.log(firstSelectedCard)
-
+        
         if (openCards.length <= 2) {
             card.classList.add("open", "show"); 
         }
@@ -73,6 +70,8 @@ allCards.forEach( (card) => {
                 })
                 openCards = [];
             }, 1000);
+            moves += 1;
+            movesElement.textContent = moves;
         }
         if (openCards.length === 2 && openCards[0].dataset.card == openCards[1].dataset.card) {
             openCards.forEach( (card) => {

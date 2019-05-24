@@ -73,6 +73,9 @@ const timerElement = document.querySelector(".timer")
 let openCards = []
 let movesCount = 0
 let starsCount = 0
+let minutesLabel = document.getElementById("minutes");
+let secondsLabel = document.getElementById("seconds");
+let totalSeconds = 0;
 
 allCards.forEach( (card) => {
     card.addEventListener("click", () => {
@@ -87,7 +90,7 @@ allCards.forEach( (card) => {
                     card.classList.remove("open", "show");
                 })
                 openCards = [];
-            }, 1000);
+            }, 800);
             movesFunction()
         }
         if (openCards.length === 2 && openCards[0].dataset.card == openCards[1].dataset.card) {
@@ -97,7 +100,6 @@ allCards.forEach( (card) => {
             startConfetti();
             cardContainer.classList.add("winner");
             let winningTime = timerElement.textContent;
-            console.log(winningTime)
             timerElement.textContent = winningTime;
         }
     })
@@ -107,9 +109,6 @@ restartElement.addEventListener("click", () => {
     newGame()
 })
 
-let minutesLabel = document.getElementById("minutes");
-let secondsLabel = document.getElementById("seconds");
-let totalSeconds = 0;
 setInterval(setTime, 1000);
 
 function setTime() {
@@ -127,7 +126,6 @@ function pad(val) {
   }
 }
 
-
 movesFunction = () => {
     movesCount += 1;
     movesElement.textContent = movesCount;
@@ -135,6 +133,7 @@ movesFunction = () => {
 
 newGame = () => {
     movesCount = 0
+    openCards = []
     movesElement.textContent = movesCount;
     allCards.forEach( (card) => {
         card.classList.remove("open", "show", "match")

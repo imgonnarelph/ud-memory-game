@@ -161,8 +161,8 @@ matchCards = () => {
 };
 
 gameOver = () => {
+  stopTimer();
   winningTime = timerElement.textContent;
-  timerElement.textContent = winningTime;
   winningStarsElement.textContent = starsCount;
   winningTimeElement.textContent = winningTime;
   winningMovesElement.textContent = movesCount;

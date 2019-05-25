@@ -82,7 +82,7 @@ allCards.forEach(card => {
       moves();
       stars();
     }
-    if (correctMatches === 1) {
+    if (correctMatches === 8) {
       gameOver();
     }
   });

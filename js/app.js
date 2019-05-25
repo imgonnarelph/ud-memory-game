@@ -147,7 +147,7 @@ newGame = () => {
     openCards = []
     movesElement.textContent = movesCount;
     allCards.forEach( (card) => {
-        card.classList.remove("open", "show", "match")
+        card.classList.remove("open", "show", "match", "wrong")
     })
     stopConfetti();
 }

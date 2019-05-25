@@ -1,71 +1,91 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>Matching Game</title>
-    <meta name="description" content="">
-    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
-    <link rel="stylesheet" href="css/app.css">
-    
-</head>
-<body>
-
+    <meta name="description" content="" />
+    <link
+      rel="stylesheet prefetch"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet prefetch"
+      href="https://fonts.googleapis.com/css?family=Coda"
+    />
+    <link rel="stylesheet" href="css/app.css" />
+  </head>
+  <body>
     <div class="container">
-        <header>
-            <h1>Matching Game</h1>
-        </header>
+      <header>
+        <h1>Matching Game</h1>
+      </header>
 
-        <section class="score-panel">
-        	<ul class="stars">
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-            </ul>
-            
-            <span class="moves">0</span> Moves in
-            
-            <span class="timer">
-                <label id="minutes">00</label>:<label id="seconds">00</label>
-            </span>
+      <section class="score-panel">
+        <ul class="stars">
+          <li><i class="fa fa-star"></i></li>
+          <li><i class="fa fa-star"></i></li>
+          <li><i class="fa fa-star"></i></li>
+        </ul>
 
-            <div class="restart">
-                Restart
-        		<i class="fa fa-repeat"></i>
-        	</div>
-        </section>
+        <span class="moves">0</span> Moves in
 
-        <ul class="deck"></ul>
+        <span class="timer">
+          <label id="minutes">00</label>:<label id="seconds">00</label>
+        </span>
+
+        <div class="restart">
+          Restart
+          <i class="fa fa-repeat"></i>
+        </div>
+      </section>
+
+      <ul class="deck"></ul>
     </div>
 
     <div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
-        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
-            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
-            <header class="modal__header">
-                <h2 class="modal__title" id="modal-1-title">
-                You won! 🎉
-                </h2>
-                <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
-            </header>
-            <main class="modal__content" id="modal-1-content">
-                <p>
-                You finished with 
-                    <strong><span class="winning-stars"></span> stars</strong> in 
-                    <strong><span class="winning-time"></span></strong> and 
-                    <strong><span class="winning-moves"></span> moves</strong>. 
-                </p>
-            </main>
-            <footer class="modal__footer">
-                <button class="modal__btn modal__btn-primary">Play again</button>
-                <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
-            </footer>
-            </div>
+      <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+        <div
+          class="modal__container"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-1-title"
+        >
+          <header class="modal__header">
+            <h2 class="modal__title" id="modal-1-title">
+              You won! 🎉
+            </h2>
+            <button
+              class="modal__close"
+              aria-label="Close modal"
+              data-micromodal-close
+            ></button>
+          </header>
+          <main class="modal__content" id="modal-1-content">
+            <p>
+              You finished with
+              <strong><span class="winning-stars"></span> stars</strong> in
+              <strong><span class="winning-time"></span></strong> and
+              <strong><span class="winning-moves"></span> moves</strong>.
+            </p>
+          </main>
+          <footer class="modal__footer">
+            <button class="modal__btn modal__btn-primary js-play-again-button">
+              Play again
+            </button>
+            <button
+              class="modal__btn"
+              data-micromodal-close
+              aria-label="Close this dialog window"
+            >
+              Close
+            </button>
+          </footer>
         </div>
+      </div>
     </div>
 
     <script src="js/confetti.js"></script>
     <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
     <script src="js/app.js"></script>
-    
-</body>
+  </body>
 </html>

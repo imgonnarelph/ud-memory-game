@@ -52,6 +52,7 @@ const winningTimeElement = document.querySelector(".winning-time");
 const winningMovesElement = document.querySelector(".winning-moves");
 const minutesLabel = document.getElementById("minutes");
 const secondsLabel = document.getElementById("seconds");
+const playAgainButton = document.querySelector(".js-play-again-button");
 let openCards = [];
 let correctMatches = 0;
 let movesCount = 0;
@@ -81,7 +82,7 @@ allCards.forEach(card => {
       moves();
       stars();
     }
-    if (correctMatches === 8) {
+    if (correctMatches === 1) {
       gameOver();
     }
   });
@@ -89,6 +90,11 @@ allCards.forEach(card => {
 
 restartElement.addEventListener("click", () => {
   initGame();
+});
+
+playAgainButton.addEventListener("click", () => {
+  initGame();
+  MicroModal.close("modal-1");
 });
 
 initGame = () => {

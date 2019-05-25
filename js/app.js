@@ -21,7 +21,7 @@ const cardContainer = document.querySelector(".deck");
 
 shuffle(deckOfCards);
 
-for (let i = 0; i <= 15; i++) {
+for (let i = 0; i <= deckOfCards.length - 1; i++) {
   const cardListItem = document.createElement("li");
   const card = document.createElement("i");
   const cardType = deckOfCards[i];
@@ -90,10 +90,10 @@ allCards.forEach(card => {
 });
 
 restartElement.addEventListener("click", () => {
-  newGame();
+  initGame();
 });
 
-newGame = () => {
+initGame = () => {
   movesCount = 0;
   openCards = [];
   movesElement.textContent = movesCount;
@@ -172,4 +172,4 @@ stars = () => {
   }
 };
 
-newGame();
+initGame();

@@ -93,38 +93,47 @@ restartElement.addEventListener("click", () => {
 });
 
 playAgainButton.addEventListener("click", () => {
-  initGame();
   MicroModal.close("modal-1");
+  initGame();
 });
 
 initGame = () => {
   movesCount = 0;
   openCards = [];
+  correctMatches = 0;
   movesElement.textContent = movesCount;
   allCards.forEach(card => {
     card.classList.remove("open", "show", "match", "wrong");
   });
   stopConfetti();
-  gameTime();
+  resetTimer();
 };
 
-gameTime = () => {
-  setInterval(setTime, 1000);
+let timer = setInterval(setTime, 1000);
 
-  function setTime() {
-    ++totalSeconds;
-    secondsLabel.innerHTML = pad(totalSeconds % 60);
-    minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
-  }
+function setTime() {
+  ++totalSeconds;
+  secondsLabel.innerHTML = pad(totalSeconds % 60);
+  minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+}
 
-  function pad(val) {
-    let valString = val + "";
-    if (valString.length < 2) {
-      return "0" + valString;
-    } else {
-      return valString;
-    }
+function pad(val) {
+  let valString = val + "";
+  if (valString.length < 2) {
+    return "0" + valString;
+  } else {
+    return valString;
   }
+}
+
+stopTimer = () => {
+  clearInterval(timer);
+};
+
+resetTimer = () => {
+  totalSeconds = 0;
+  clearInterval(timer);
+  timer = setInterval(setTime, 1000);
 };
 
 showCards = card => {

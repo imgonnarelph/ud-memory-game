@@ -25,7 +25,6 @@ for (let i = 0; i <= 15; i++) {
   const cardListItem = document.createElement("li");
   const card = document.createElement("i");
   const cardType = deckOfCards[i];
-  // deckOfCards = shuffle(deckOfCards);
 
   cardListItem.className = "card";
   cardListItem.dataset.card = cardType;
@@ -43,22 +42,14 @@ function shuffle(a) {
   return a;
 }
 
-/*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
-
 const allCards = document.querySelectorAll(".card");
 const movesElement = document.querySelector(".moves");
 const restartElement = document.querySelector(".restart");
 const timerElement = document.querySelector(".timer");
 const starsElement = document.querySelector(".stars");
+const winningStarsElement = document.querySelector(".winning-stars");
+const winningTimeElement = document.querySelector(".winning-time");
+const winningMovesElement = document.querySelector(".winning-moves");
 let openCards = [];
 let correctMatches = 0;
 let movesCount = 0;
@@ -159,9 +150,6 @@ matchCards = () => {
 };
 
 gameOver = () => {
-  let winningStarsElement = document.querySelector(".winning-stars");
-  let winningTimeElement = document.querySelector(".winning-time");
-  let winningMovesElement = document.querySelector(".winning-moves");
   winningStarsElement.textContent = starsCount;
   winningTimeElement.textContent = winningTime;
   winningMovesElement.textContent = movesCount;

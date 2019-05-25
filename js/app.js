@@ -145,11 +145,11 @@ matchCards = () => {
   });
   correctMatches += 1;
   openCards = [];
-  winningTime = timerElement.textContent;
-  timerElement.textContent = winningTime;
 };
 
 gameOver = () => {
+  winningTime = timerElement.textContent;
+  timerElement.textContent = winningTime;
   winningStarsElement.textContent = starsCount;
   winningTimeElement.textContent = winningTime;
   winningMovesElement.textContent = movesCount;
@@ -171,3 +171,5 @@ stars = () => {
     starsElement.children[0].childNodes[0].className += " fa-star-o";
   }
 };
+
+newGame();

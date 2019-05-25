@@ -91,7 +91,7 @@ allCards.forEach( (card) => {
             timerElement.textContent = winningTime;
             stars()
         }
-        if (correctMatches === 1) {
+        if (correctMatches === 8) {
             let winningStarsElement = document.querySelector(".winning-stars");
             let winningTimeElement = document.querySelector(".winning-time");
             let winningMovesElement = document.querySelector(".winning-moves");
@@ -126,9 +126,12 @@ function pad(val) {
 }
 
 hideCards = () => {
+    openCards.forEach( (card) => {
+            card.classList.add("wrong");
+    })
     setTimeout(() => {
         openCards.forEach( (card) => {
-            card.classList.remove("open", "show");
+            card.classList.remove("open", "show", "wrong");
         })
         openCards = [];
     }, 800);
@@ -150,9 +153,9 @@ newGame = () => {
 }
 
 stars = () => {
-    if (movesCount === 10) {
+    if (movesCount === 8) {
         starsElement.children[2].childNodes[0].className += " fa-star-o";
-    } else if (movesCount === 18) {
+    } else if (movesCount === 12) {
         starsElement.children[1].childNodes[0].className += " fa-star-o";
     }
 }

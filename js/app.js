@@ -50,15 +50,13 @@ const starsElement = document.querySelector(".stars");
 const winningStarsElement = document.querySelector(".winning-stars");
 const winningTimeElement = document.querySelector(".winning-time");
 const winningMovesElement = document.querySelector(".winning-moves");
+const minutesLabel = document.getElementById("minutes");
+const secondsLabel = document.getElementById("seconds");
 let openCards = [];
 let correctMatches = 0;
 let movesCount = 0;
 let starsCount = 3;
-let winningStars = 0;
 let winningTime = 0;
-let winningMoves = 0;
-let minutesLabel = document.getElementById("minutes");
-let secondsLabel = document.getElementById("seconds");
 let totalSeconds = 0;
 
 allCards.forEach(card => {

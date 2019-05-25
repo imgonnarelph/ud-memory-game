@@ -150,9 +150,9 @@ newGame = () => {
 }
 
 stars = () => {
-    if (movesCount === 5) {
-        starsElement.children[2].classList.add("hide")
-    } else if (movesCount === 7) {
-        starsElement.children[1].classList.add("hide")
+    if (movesCount === 10) {
+        starsElement.children[2].childNodes[0].className += " fa-star-o";
+    } else if (movesCount === 18) {
+        starsElement.children[1].childNodes[0].className += " fa-star-o";
     }
 }

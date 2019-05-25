@@ -99,12 +99,16 @@ playAgainButton.addEventListener("click", () => {
 
 initGame = () => {
   movesCount = 0;
+  starsCount = 3;
   openCards = [];
   correctMatches = 0;
   movesElement.textContent = movesCount;
   allCards.forEach(card => {
     card.classList.remove("open", "show", "match", "wrong");
   });
+  starsElement.children[2].childNodes[0].classList.remove("fa-star-o");
+  starsElement.children[1].childNodes[0].classList.remove("fa-star-o");
+  starsElement.children[0].childNodes[0].classList.remove("fa-star-o");
   stopConfetti();
   resetTimer();
 };
@@ -176,11 +180,11 @@ moves = () => {
 };
 
 stars = () => {
-  if (movesCount >= 8) {
+  if (movesCount >= 9 && movesCount < 12) {
     starsElement.children[2].childNodes[0].className += " fa-star-o";
-  } else if (movesCount >= 12) {
+  } else if (movesCount > 12 && movesCount < 15) {
     starsElement.children[1].childNodes[0].className += " fa-star-o";
-  } else if (movesCount >= 15) {
+  } else if (movesCount > 15) {
     starsElement.children[0].childNodes[0].className += " fa-star-o";
   }
 };

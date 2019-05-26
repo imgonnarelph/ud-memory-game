@@ -1,17 +1,29 @@
-# Memory Game Project
+# Project overview
+
+This is the memory game project that's part of the Udacity front-end developer nano-degree.
 
 ## Table of Contents
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+- [Demo](#demo)
+- [Instructions](#instuctions)
+- [Dependencies](#dependencies)
+- [Contributing](#contributing)
+
+## Demo
+
+[Play it here](https://imgonnarelph.github.io/ud-memory-game/)
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+The goal is to match all cards with its hidden duplicate in as few moves as possible and as quick as you can.
 
-To get started, open `js/app.js` and start building out the app's functionality
+## Dependencies
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+- [Font awesome](https://fontawesome.com/) for the icons.
+- [Google Fonts](https://fonts.google.com/specimen/Coda) for the Coda type.
+- [Shuffle function](https://stackoverflow.com/a/6274381/4938893) ES6 shuffle function
+- [Confetti JS](https://github.com/mathusummut/confetti.js/) when you win.
+- [Micromodal](https://github.com/Ghosh/micromodal) when you win.
 
 ## Contributing
 

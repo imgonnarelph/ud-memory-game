@@ -185,9 +185,6 @@ stars = () => {
   } else if (movesCount > 12 && movesCount < 15) {
     starsElement.children[1].childNodes[0].className += " fa-star-o";
     starsCount = 1;
-  } else if (movesCount > 15) {
-    starsElement.children[0].childNodes[0].className += " fa-star-o";
-    starsCount = 0;
   }
 };
 

@@ -97,21 +97,6 @@ playAgainButton.addEventListener("click", () => {
   initGame();
 });
 
-initGame = () => {
-  movesCount = 0;
-  openCards = [];
-  correctMatches = 0;
-  movesElement.textContent = movesCount;
-  allCards.forEach(card => {
-    card.classList.remove("open", "show", "match", "wrong");
-  });
-  starsElement.children[2].childNodes[0].classList.remove("fa-star-o");
-  starsElement.children[1].childNodes[0].classList.remove("fa-star-o");
-  starsElement.children[0].childNodes[0].classList.remove("fa-star-o");
-  stopConfetti();
-  resetTimer();
-};
-
 let timer = setInterval(setTime, 1000);
 
 function setTime() {
@@ -129,6 +114,21 @@ function pad(val) {
   }
 }
 
+initGame = () => {
+  movesCount = 0;
+  openCards = [];
+  correctMatches = 0;
+  movesElement.textContent = movesCount;
+  allCards.forEach(card => {
+    card.classList.remove("open", "show", "match", "disabled", "wrong");
+  });
+  starsElement.children[2].childNodes[0].classList.remove("fa-star-o");
+  starsElement.children[1].childNodes[0].classList.remove("fa-star-o");
+  starsElement.children[0].childNodes[0].classList.remove("fa-star-o");
+  stopConfetti();
+  resetTimer();
+};
+
 stopTimer = () => {
   clearInterval(timer);
 };
@@ -140,7 +140,7 @@ resetTimer = () => {
 };
 
 showCards = card => {
-  card.classList.add("open", "show");
+  card.classList.add("open", "show", "disabled");
 };
 
 hideCards = () => {
@@ -149,7 +149,7 @@ hideCards = () => {
   });
   setTimeout(() => {
     openCards.forEach(card => {
-      card.classList.remove("open", "show", "wrong");
+      card.classList.remove("open", "show", "disabled", "wrong");
     });
     openCards = [];
   }, 800);

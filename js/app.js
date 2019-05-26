@@ -124,7 +124,6 @@ initGame = () => {
   });
   starsElement.children[2].childNodes[0].classList.remove("fa-star-o");
   starsElement.children[1].childNodes[0].classList.remove("fa-star-o");
-  starsElement.children[0].childNodes[0].classList.remove("fa-star-o");
   stopConfetti();
   resetTimer();
 };
